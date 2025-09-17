@@ -50,9 +50,9 @@ Class Io {
 	private $_enable_csrf = FALSE;
 
 	/**
-	 * Securty instance
+	 * Security instance
 	 *
-	 * @var class
+	 * @var Security
 	 */
 	private $security;
 
@@ -85,7 +85,7 @@ Class Io {
 		/**
 		 * Load Security Instance
 		 *
-		 * @var class
+		 * @var Security
 		 */
 		$this->security =& load_class('Security', 'kernel');
 

@@ -1,0 +1,8 @@
+{
+    "name": "myproject/crud",
+    "description": "Simple CRUD project",
+    "type": "project",
+    "require": {
+        "php": "^8.0"
+    }
+}

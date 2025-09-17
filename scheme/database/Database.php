@@ -249,7 +249,7 @@ class Database {
     /**
      * Get Database Instance
      *
-     * @return instance
+     * @return Database
      */
     public static function instance($dbname)
     {
@@ -1142,7 +1142,7 @@ class Database {
 
         $this->limit = ' LIMIT '.$offset.', '.$records_per_page;
 
-        return $this;
+        return null;
     }
 
     /**
