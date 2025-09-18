@@ -214,7 +214,7 @@ class Database {
 
         switch ($driver) {
             case 'mysql':
-                $dsn = "mysql:host=localhost;dbname=mydb;charset=utf8";
+                $dsn = "mysql:host=$host;dbname=$dbname_value;charset=$charset;port=$port";
                 break;
             case 'pgsql':
                 $dsn = "pgsql:host=$host;port=$port;dbname=$dbname_value;user=$username;password=$password";
@@ -249,7 +249,7 @@ class Database {
     /**
      * Get Database Instance
      *
-     * @return Database
+     * @return instance
      */
     public static function instance($dbname)
     {
@@ -313,7 +313,7 @@ class Database {
                 return $stmt->rowCount();
             }
         } catch (Exception $e) {
-            throw new PDOException($e->getMessage() . 'Query: ' . $this->getSQL . '');
+            throw new PDOException($e->getMessage() . '<div style="background-color:#000;color:#fff;padding:15px">Query: ' . $this->getSQL . '</div>');
         }
     }
 
@@ -1142,7 +1142,7 @@ class Database {
 
         $this->limit = ' LIMIT '.$offset.', '.$records_per_page;
 
-        return null;
+        return $this;
     }
 
     /**
