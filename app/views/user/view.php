@@ -3,134 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <title>View</title>
     <style>
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e6f0ff;
-            background-image: repeating-linear-gradient(
-                45deg, #e3f2fd 0px, #e3f2fd 10px, #bbdefb 10px, #bbdefb 20px
-            );
-            background-size: 40px 40px;
-            margin: 50px; /* ✅ Fixed: may unit na px */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 10px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+            margin: 0;
+            padding: 20px;
+            color: #444;
         }
 
-        .form-container {
-            background: #ffffff;
-            color: #333;
-            padding: 30px 35px;
-            border-radius: 20px;
-            border: 4px dashed #64b5f6;
-            box-shadow: 0px 10px 25px rgba(100, 181, 246, 0.4);
-            max-width: 380px;
-            width: 100%;
-            animation: popIn 0.6s ease-out;
-        }
-
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) rotate(-2deg);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.05) rotate(1deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-            }
-        }
-
-        .form-container h1 {
+        h1 {
             text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            color: #1565c0;
-            background: #e3f2fd;
-            padding: 8px 15px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.5);
+            color: #b83280;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
             border-radius: 15px;
-            border: 2px dashed #90caf9;
-            display: inline-block;
-            width: 100%;
+            overflow: hidden;
+            background: #fff;
+            color: #555;
         }
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            color: #1976d2;
-            font-size: 0.95rem;
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
         }
 
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px dashed #bbdefb;
-            border-radius: 12px;
-            outline: none;
-            transition: all 0.3s ease;
-            font-size: 15px;
-            background: #f0f8ff;
-        }
-
-        input[type="text"]:focus, input[type="email"]:focus {
-            border-color: #64b5f6;
-            box-shadow: 0px 0px 10px rgba(100, 181, 246, 0.5);
-            background: #e3f2fd;
-        }
-
-        input[type="submit"] {
-            margin-top: 25px;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #64b5f6, #1565c0);
+        th {
+            background: linear-gradient(135deg, #fbc2eb, #a18cd1);
             color: white;
-            font-size: 16px;
+            font-size: 18px;
+        }
+
+        tr {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        tr:nth-child(even) {
+            background: #ffe6f2;
+        }
+
+        tr:nth-child(odd) {
+            background: #fff0f5;
+        }
+
+        tr:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 5px 15px rgba(255,105,180,0.4);
+            background: #ffd6e8;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-weight: bold;
-            border: 2px dashed white;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 6px 12px rgba(33, 150, 243, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
-        input[type="submit"]:hover {
-            background: linear-gradient(135deg, #42a5f5, #0d47a1);
-            transform: translateY(-2px) rotate(-1deg);
-            box-shadow: 0 8px 16px rgba(33, 150, 243, 0.6);
+        a[href*="update"] {
+            background: #ff80bf;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 480px) {
-            .form-container {
-                padding: 20px;
-                border-width: 3px;
-            }
+        a[href*="update"]:hover {
+            background: #e75480;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255,105,180,0.5);
+        }
 
-            .form-container h1 {
-                font-size: 1.3rem;
-                padding: 6px 10px;
-            }
+        a[href*="delete"] {
+            background: #ff4d6d;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        a[href*="delete"]:hover {
+            background: #d6336c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255,0,102,0.4);
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>🧵 Create New User 🧵</h1>
-        <form method="post" action="">
-            <label for="username">👤 Username:</label>
-            <input type="text" name="username" id="username" placeholder="Enter username" required>
-
-            <label for="email">📧 Email:</label>
-            <input type="email" name="email" id="email" placeholder="Enter email" required>
-
-            <input type="submit" value="✨ Create User ✨">
-        </form>
+    <h1>🌸 Welcome to User Page 🌸</h1>
+    
+    <div style="width: 80%; margin: 0 auto 30px auto; text-align: right;">
+        <a href="<?= site_url('user/create'); ?>" style="
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
+        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(255,105,180,0.5)'" 
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.2)'">
+            ✨ + Create New User ✨
+        </a>
     </div>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['id']; ?></td>
+                <td><?= $user['username']; ?></td>
+                <td><?= $user['email']; ?></td>
+                <td>
+                    <a href="<?= site_url('user/update/'.$user['id']); ?>">Edit</a> |
+                    <a href="<?= site_url('user/delete/'.$user['id']); ?>" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
