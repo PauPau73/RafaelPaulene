@@ -1,8 +1,19 @@
-# Use official PHP image with Apache
-FROM php:8.1-apache
+FROM php:8.2-apache
 
-# Copy project files to Apache server directory
+# Install PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Allow .htaccess overrides
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
+# Copy app files
 COPY . /var/www/html/
 
-# Install PHP extensions kung kailangan ng MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+EXPOSE 80
