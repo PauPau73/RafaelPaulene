@@ -143,11 +143,11 @@
     </style>
 </head>
 <body>
-    <h1>🧵 User List 🧵</h1>
+    <h1> Profile List </h1>
 
     <div class="table-container">
         <div style="text-align: right; margin-bottom: 15px;">
-            <a href="<?= site_url('user/create'); ?>" class="create-btn">✨ + Create New User ✨</a>
+            <a href="<?= site_url('user/create'); ?>" class="create-btn"> Create New User </a>
         </div>
 
         <table>

@@ -114,15 +114,15 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>🧵 Update User 🧵</h1>
+        <h1> Update User </h1>
         <form method="post" action="<?= site_url('user/update/'.$user['id']) ?>">
-            <label for="username">👤 Username:</label>
+            <label for="username"> Username:</label>
             <input type="text" name="username" id="username" value="<?= html_escape($user['username']) ?>" required>
 
-            <label for="email">📧 Email:</label>
+            <label for="email"> Email:</label>
             <input type="email" name="email" id="email" value="<?= html_escape($user['email']) ?>" required>
 
-            <input type="submit" value="✨ Update User ✨">
+            <input type="submit" value=" Update User ">
         </form>
     </div>
 </body>
