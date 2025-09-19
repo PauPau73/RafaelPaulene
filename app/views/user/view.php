@@ -7,25 +7,25 @@
     <style>
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fdf6f0;
+            background: #eef6fc; /* Soft light blue */
             margin: 0;
             padding: 20px;
-            color: #444;
+            color: #333;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 30px;
-            color: #c94f7c;
+            color: #023e8a;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 119, 182, 0.3);
         }
 
         .table-container {
             width: 85%;
             margin: 0 auto;
-            background: #fff8f4;
-            border: 4px dashed #ffb6c1;
+            background: #ffffff;
+            border: 4px dashed #8ecae6; /* Blue stitched border */
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
@@ -40,8 +40,8 @@
             border-radius: 20px;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 182, 193, 0.05),
-                rgba(255, 182, 193, 0.05) 8px,
+                rgba(142, 202, 230, 0.08),
+                rgba(142, 202, 230, 0.08) 8px,
                 transparent 8px,
                 transparent 16px
             );
@@ -63,24 +63,24 @@
         }
 
         th {
-            background: #ffb6c1;
+            background: #48cae4;
             color: white;
             font-size: 16px;
             border-bottom: 3px dashed #fff;
         }
 
         tr:nth-child(even) {
-            background: #fff0f5;
+            background: #e0f7ff;
         }
 
         tr:nth-child(odd) {
-            background: #ffe6f2;
+            background: #cceeff;
         }
 
         tr:hover {
-            background: #ffd6e8;
+            background: #bde0fe;
             transform: scale(1.01);
-            box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.4);
+            box-shadow: inset 0 0 10px rgba(72, 202, 228, 0.4);
         }
 
         a {
@@ -93,34 +93,34 @@
         }
 
         a[href*="update"] {
-            background: #ff80bf;
+            background: #48cae4;
             color: white;
             border: 2px dashed #fff;
-            box-shadow: 0 3px 6px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 3px 6px rgba(72, 202, 228, 0.3);
         }
 
         a[href*="update"]:hover {
-            background: #e75480;
+            background: #0096c7;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 5px 10px rgba(0, 150, 199, 0.5);
         }
 
         a[href*="delete"] {
-            background: #ff4d6d;
+            background: #0077b6;
             color: white;
             border: 2px dashed #fff;
-            box-shadow: 0 3px 6px rgba(255, 0, 102, 0.3);
+            box-shadow: 0 3px 6px rgba(0, 119, 182, 0.3);
         }
 
         a[href*="delete"]:hover {
-            background: #d6336c;
+            background: #023e8a;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(255, 0, 102, 0.5);
+            box-shadow: 0 5px 10px rgba(2, 62, 138, 0.5);
         }
 
         .create-btn {
             display: inline-block;
-            background: #ffb6c1;
+            background: #48cae4;
             color: white;
             padding: 12px 24px;
             text-decoration: none;
@@ -128,7 +128,7 @@
             font-weight: bold;
             font-size: 16px;
             border: 2px dashed #fff;
-            box-shadow: 0 4px 6px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 4px 6px rgba(72, 202, 228, 0.3);
             transition: 0.3s;
             margin-bottom: 20px;
             position: relative;
@@ -136,9 +136,9 @@
         }
 
         .create-btn:hover {
-            background: #ff91af;
+            background: #0096c7;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 6px 12px rgba(0, 150, 199, 0.5);
         }
     </style>
 </head>
