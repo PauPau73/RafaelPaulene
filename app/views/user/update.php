@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background: #fdf6f0; /* Soft canvas look */
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,22 +17,40 @@
         }
 
         .form-container {
-            background: #fff;
-            color: #444;
-            padding: 30px 40px;
+            background: #fff8f4;
+            padding: 35px 45px;
             border-radius: 20px;
-            box-shadow: 0px 10px 25px rgba(255, 105, 180, 0.4);
+            border: 4px dashed #ffb6c1; /* Stitched border */
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
             width: 360px;
             animation: fadeIn 0.6s ease-in-out;
-            border: 3px solid #ffd6e8;
+            position: relative;
+        }
+
+        /* Soft fabric pattern overlay */
+        .form-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 182, 193, 0.05),
+                rgba(255, 182, 193, 0.05) 8px,
+                transparent 8px,
+                transparent 16px
+            );
+            z-index: 0;
         }
 
         .form-container h1 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 22px;
-            color: #b83280;
-            text-shadow: 1px 1px 3px rgba(255, 0, 102, 0.2);
+            color: #c94f7c;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
         }
 
         label {
@@ -40,44 +58,52 @@
             display: block;
             margin-top: 15px;
             margin-bottom: 6px;
-            color: #e75480;
+            color: #b94d75;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
         }
 
         input[type="text"], input[type="email"] {
             width: 100%;
             padding: 12px;
-            border: 2px solid #fbc2eb;
+            border: 2px dashed #f5a6c6;
             border-radius: 12px;
             outline: none;
             transition: 0.3s;
             font-size: 15px;
             background: #fff0f5;
+            position: relative;
+            z-index: 1;
         }
 
         input[type="text"]:focus, input[type="email"]:focus {
             border-color: #ff80bf;
-            box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.5);
+            background: #fff7fb;
+            box-shadow: inset 0px 0px 8px rgba(255, 192, 203, 0.5);
         }
 
         input[type="submit"] {
             margin-top: 25px;
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #ff80bf, #a18cd1);
-            color: white;
+            background: #ffb6c1;
+            color: #fff;
             font-size: 16px;
             font-weight: bold;
-            border: none;
-            border-radius: 25px;
+            border: 2px dashed #fff;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(255,105,180,0.4);
-            transition: 0.3s;
+            box-shadow: 0 5px 10px rgba(255, 182, 193, 0.3);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
 
         input[type="submit"]:hover {
-            background: linear-gradient(135deg, #e75480, #b83280);
+            background: #ff91af;
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(255,0,102,0.5);
+            box-shadow: 0 7px 14px rgba(255, 105, 180, 0.4);
         }
 
         @keyframes fadeIn {
@@ -88,7 +114,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>🌸 Update User 🌸</h1>
+        <h1>🧵 Update User 🧵</h1>
         <form method="post" action="<?= site_url('user/update/'.$user['id']) ?>">
             <label for="username">👩 Username:</label>
             <input type="text" name="username" id="username" value="<?= html_escape($user['username']) ?>" required>
